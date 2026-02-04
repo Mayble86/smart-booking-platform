@@ -2,8 +2,6 @@ package com.olegf.spingapp.smartbookingplatform.domain.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,16 +12,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,6 +34,5 @@ public class Users {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    @Enumerated(EnumType.STRING)
-    private Set<Roles> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 }

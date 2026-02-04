@@ -8,23 +8,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
-@Table(name = "roles")
 @Data
-public class Roles {
+@Entity
+@Table(name = "services")
+public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
-    private String name; // USER, ADMIN
+    @Column(nullable = false)
+    private String name;
 
+    @Column
     private String description;
 
-    public Roles(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Roles() {}
+    @Column
+    private int price;
 }

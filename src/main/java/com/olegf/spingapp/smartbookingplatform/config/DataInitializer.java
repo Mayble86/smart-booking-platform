@@ -1,28 +1,28 @@
 package com.olegf.spingapp.smartbookingplatform.config;
 
-import com.olegf.spingapp.smartbookingplatform.domain.entity.Roles;
-import com.olegf.spingapp.smartbookingplatform.domain.repository.RolesRepo;
+import com.olegf.spingapp.smartbookingplatform.domain.entity.Role;
+import com.olegf.spingapp.smartbookingplatform.domain.repository.RoleRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
-    private final RolesRepo rolesRepo;
+    private final RoleRepo roleRepo;
 
-    public DataInitializer(RolesRepo rolesRepo) {
-        this.rolesRepo = rolesRepo;
+    public DataInitializer(RoleRepo roleRepo) {
+        this.roleRepo = roleRepo;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        if (rolesRepo.count() == 0) {
+        if (roleRepo.count() == 0) {
             System.out.println("Creating roles");
 
-            Roles userRole = new Roles("USER", "User");
-            Roles adminRole = new Roles("ADMIN", "Admin");
+            Role userRole = new Role("USER", "User");
+            Role adminRole = new Role("ADMIN", "Admin");
 
-            rolesRepo.save(userRole);
-            rolesRepo.save(adminRole);
+            roleRepo.save(userRole);
+            roleRepo.save(adminRole);
 
             System.out.println("Roles created");
         } else {
