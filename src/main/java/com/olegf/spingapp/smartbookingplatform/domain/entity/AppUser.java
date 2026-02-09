@@ -14,10 +14,10 @@ import java.util.HashSet;
 import java.util.Set;
 import lombok.Data;
 
-@Entity
-@Table(name = "users")
 @Data
-public class User {
+@Entity
+@Table(name = "app_users")
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

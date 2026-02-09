@@ -31,7 +31,7 @@ public class TimeSlot {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private AppUser user;
 
     private boolean isBooked = false;
 }
