@@ -4,7 +4,7 @@ import java.util.Set;
 import lombok.Data;
 
 @Data
-public class AppUserDto {
+public class AppUserResponse {
     private Long id;
     private String email;
     private Set<String> roles;
