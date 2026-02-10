@@ -10,7 +10,7 @@ import org.mapstruct.Mapper;
 public interface BookingMapper {
     Booking toEntity(BookingCreateRequest dto);
 
-    BookingResponse toResponse(BookingCreateRequest entity);
+    BookingResponse toResponse(Booking entity);
 
-    List<BookingResponse> toResponse(List<Booking> entities);
+    List<BookingResponse> toResponseList(List<Booking> entities);
 }

@@ -3,25 +3,25 @@ package com.olegf.spingapp.smartbookingplatform.domain.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "services")
-public class Service {
+@Table(name = "outbox_events")
+public class OutboxEvent {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    private String eventType;
 
-    @Column
-    private String description;
+    @Column(columnDefinition = "TEXT")
+    private String payload;
 
-    @Column
-    private int price;
+    private boolean processed = false;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

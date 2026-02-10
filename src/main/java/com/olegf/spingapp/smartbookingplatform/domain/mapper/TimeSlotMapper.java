@@ -10,7 +10,7 @@ import org.mapstruct.Mapper;
 public interface TimeSlotMapper {
     TimeSlot toEntity(TimeSlotCreateRequest dto);
 
-    TimeSlotResponse toResponse(TimeSlotCreateRequest entity);
+    TimeSlotResponse toResponse(TimeSlot entity);
 
-    List<TimeSlot> toResponse(List<TimeSlot> entities);
+    List<TimeSlotResponse> toResponseList(List<TimeSlot> entities);
 }
